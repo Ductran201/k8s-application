@@ -60,6 +60,7 @@ stages:
       displayName: Create imagePullSecret
       inputs:
         action: createSecret
+        kubernetesServiceConnection: aks-myakscluster-conn
         secretName: $(imagePullSecret)
         dockerRegistryEndpoint: $(dockerRegistryServiceConnection)
         
@@ -67,6 +68,7 @@ stages:
       displayName: Deploy to Kubernetes cluster
       inputs:
         action: deploy
+        kubernetesServiceConnection: aks-myakscluster-conn
         manifests: |
           $(Pipeline.Workspace)/manifests/deployment.yml
           $(Pipeline.Workspace)/manifests/service.yml
