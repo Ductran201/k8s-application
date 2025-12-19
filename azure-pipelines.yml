@@ -11,7 +11,7 @@ resources:
 variables:
 
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '356d6e30-3e7b-458c-af4d-25e5dcc05cd7'
+  dockerRegistryServiceConnection: 'ghostauacr-conn'
   imageRepository: 'ksapplication'
   containerRegistry: 'ghostauacr.azurecr.io'
   dockerfilePath: '**/Dockerfile'
