@@ -54,8 +54,15 @@ stages:
     pool:
       name: self-hosted-linux
     # environment: 'ghostinthewiresk8sapplication.myakscluster-default'
-
     steps:
+    - download: current
+      artifact: manifests
+    
+    - script: |
+        echo "=== Pipeline.Workspace ==="
+        ls -R $(Pipeline.Workspace)
+      displayName: Debug manifest path
+
     - task: KubernetesManifest@0
       displayName: Create imagePullSecret
       inputs:
